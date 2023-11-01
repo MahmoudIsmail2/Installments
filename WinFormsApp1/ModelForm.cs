@@ -53,7 +53,8 @@ namespace MyInstallments_App
                 CreatedDate, 
                 ItemPurchasePrice, 
                 NumberOfLatedInstallments,
-                UpdatedDate
+                UpdatedDate,
+                Product
             ) VALUES (
                 @Id,
                 @CustomerName, 
@@ -66,7 +67,8 @@ namespace MyInstallments_App
                 @CreatedDate, 
                 @ItemPurchasePrice, 
                 @NumberOfLatedInstallments,
-                @UpdateDate
+                @UpdateDate,
+                @Product
             )";
 
                 using (SqlCommand cmd = new SqlCommand(insertCommand, con))
@@ -84,6 +86,7 @@ namespace MyInstallments_App
                     cmd.Parameters.AddWithValue("@ItemPurchasePrice", data.ItemPurchasePrice);
                     cmd.Parameters.AddWithValue("@NumberOfLatedInstallments", 0);
                     cmd.Parameters.AddWithValue("@UpdateDate", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@Product", data.Product);
 
                     try
                     {

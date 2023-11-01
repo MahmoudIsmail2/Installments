@@ -10,11 +10,12 @@ namespace MyInstallments_App.UserControls
         }
 
         public static int parentX, parentY;
-        private decimal CalculateInstallmentValue(int numberOfInstallments, decimal itemPurchasePrice, decimal providerValue)
+        private decimal CalculateInstallmentValue(int numberOfInstallments, decimal itemPurchasePrice, decimal providerValue, int percentage)
         {
             decimal valueAfterDiscountProvider = itemPurchasePrice - providerValue;
-            decimal installmentValue = valueAfterDiscountProvider + (valueAfterDiscountProvider * 0.35m);
-            var result = installmentValue / numberOfInstallments;
+            decimal installmentValue = valueAfterDiscountProvider + (valueAfterDiscountProvider * (decimal)percentage / 100);
+            decimal roundedValue = Math.Round(installmentValue, 3);
+            decimal result = Math.Round(roundedValue / numberOfInstallments, 3);
             return result;
         }
 
@@ -39,7 +40,7 @@ namespace MyInstallments_App.UserControls
             else
                 period = 24;
 
-            if (PPrice_txt.Text == "" || CustomerName_txt.Text == "" || Provider_txt.Text == "" || InstallmentType_txt.Text == "")
+            if (PPrice_txt.Text == "" || CustomerName_txt.Text == "" || Provider_txt.Text == "" || InstallmentType_txt.Text == "" || ProductTxt.Text == "" || PercentageTxt.Text == "")
             {
                 MessageBox.Show("يجب عليك اكمال البيانات!", "خطر", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -48,8 +49,10 @@ namespace MyInstallments_App.UserControls
                 string phoneTxt = CustomerPhone_txt.Text;
                 string providerTxt = Provider_txt.Text;
                 string purchasePrice = PPrice_txt.Text;
-                if (Checkalphanumeric(phoneTxt) || Checkalphanumeric(providerTxt) || Checkalphanumeric(purchasePrice))
-                {                    MessageBox.Show("يجب عليك ادخال بيانات صحيحه!", "خطر", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string percentage = PercentageTxt.Text;
+                if (Checkalphanumeric(phoneTxt) || Checkalphanumeric(providerTxt) || Checkalphanumeric(purchasePrice) || Checkalphanumeric(percentage))
+                {
+                    MessageBox.Show("يجب عليك ادخال بيانات صحيحه!", "خطر", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -57,12 +60,13 @@ namespace MyInstallments_App.UserControls
                     {
                         CustomerName = CustomerName_txt.Text,
                         CustomerPhone = CustomerPhone_txt.Text,
+                        Product = ProductTxt.Text,
                         ItemPurchasePrice = decimal.Parse(PPrice_txt.Text),
                         ProviderValue = decimal.Parse(Provider_txt.Text),
                         InstallmentPeriodType = period,
                         InstallmentExpirayDate = DateTime.Now.AddMonths(period),
                         NumberOfInstallments = period,
-                        InstallmentValue = CalculateInstallmentValue(period, decimal.Parse(PPrice_txt.Text), decimal.Parse(Provider_txt.Text))
+                        InstallmentValue = CalculateInstallmentValue(period, decimal.Parse(PPrice_txt.Text), decimal.Parse(Provider_txt.Text), int.Parse(percentage))
                     };
                     if (installmentDetails.ProviderValue >= installmentDetails.ItemPurchasePrice)
                     {

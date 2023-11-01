@@ -10,6 +10,7 @@ namespace MyInstallments_App.Classes
     {
         public string? CustomerName { get; set; }
         public string? CustomerPhone { get; set; }
+        public string? Product { get; set; }
         public decimal ItemPurchasePrice { get; set; }
         public int? InstallmentPeriodType { get; set; }
         public int NumberOfInstallments { get; set; }

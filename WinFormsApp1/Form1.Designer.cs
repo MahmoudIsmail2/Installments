@@ -34,6 +34,7 @@
             panel1 = new Panel();
             UserNameTxt = new TextBox();
             pictureBox2 = new PictureBox();
+            Eye_btn = new Button();
             panel2 = new Panel();
             PasswordTxt = new TextBox();
             pictureBox3 = new PictureBox();
@@ -48,7 +49,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(160, 7);
+            pictureBox1.Location = new Point(174, 6);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(133, 156);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -59,7 +60,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(176, 165);
+            label1.Location = new Point(176, 174);
             label1.Name = "label1";
             label1.Size = new Size(131, 28);
             label1.TabIndex = 1;
@@ -78,7 +79,7 @@
             // 
             // UserNameTxt
             // 
-            UserNameTxt.Font = new Font("Sitka Banner", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            UserNameTxt.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             UserNameTxt.Location = new Point(49, 9);
             UserNameTxt.MaxLength = 30;
             UserNameTxt.Multiline = true;
@@ -98,10 +99,27 @@
             pictureBox2.TabIndex = 0;
             pictureBox2.TabStop = false;
             // 
+            // Eye_btn
+            // 
+            Eye_btn.BackColor = Color.White;
+            Eye_btn.BackgroundImage = (Image)resources.GetObject("Eye_btn.BackgroundImage");
+            Eye_btn.FlatAppearance.BorderSize = 0;
+            Eye_btn.FlatAppearance.MouseDownBackColor = Color.White;
+            Eye_btn.FlatAppearance.MouseOverBackColor = Color.White;
+            Eye_btn.FlatStyle = FlatStyle.Flat;
+            Eye_btn.ForeColor = Color.White;
+            Eye_btn.Location = new Point(306, 13);
+            Eye_btn.Name = "Eye_btn";
+            Eye_btn.Size = new Size(29, 34);
+            Eye_btn.TabIndex = 17;
+            Eye_btn.UseVisualStyleBackColor = true;
+            Eye_btn.Click += Eye_btn_Click;
+            // 
             // panel2
             // 
             panel2.BackColor = Color.White;
             panel2.BorderStyle = BorderStyle.FixedSingle;
+            panel2.Controls.Add(Eye_btn);
             panel2.Controls.Add(PasswordTxt);
             panel2.Controls.Add(pictureBox3);
             panel2.Location = new Point(69, 304);
@@ -111,7 +129,7 @@
             // 
             // PasswordTxt
             // 
-            PasswordTxt.Font = new Font("Sitka Banner", 7.79999971F, FontStyle.Bold, GraphicsUnit.Point);
+            PasswordTxt.Font = new Font("Arial Narrow", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
             PasswordTxt.Location = new Point(49, 9);
             PasswordTxt.MaxLength = 20;
             PasswordTxt.Multiline = true;
@@ -187,5 +205,6 @@
         private Button button1;
         private TextBox textBox1;
         private TextBox UserNameTxt;
+        private Button Eye_btn;
     }
 }
