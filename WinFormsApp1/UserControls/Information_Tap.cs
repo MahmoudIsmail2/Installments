@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace MyInstallments_App.UserControls
 {
@@ -17,20 +18,29 @@ namespace MyInstallments_App.UserControls
         {
             InitializeComponent();
         }
-        public void DrawData(string? text = null)
+        public void DrawData(string? text = null, DateTime? startDate = null, DateTime? endDate = null)
         {
-            string query;
-
-            if (text == null)
+            string query;           
+            if (startDate != null && endDate != null)
             {
-                query = "SELECT Id,CustomerName,CustomerPhone,Product,InstallmentValue,NumberOfInstallments,ItemPurchasePrice FROM Installments ";
-
-
+                DateTime start = ((DateTime)startDate).Date;
+                DateTime end = ((DateTime)endDate).Date.AddDays(1).AddSeconds(-1);
+                query = $"SELECT Id, CustomerName, CustomerPhone, Product, InstallmentValue, NumberOfInstallments, ItemPurchasePrice FROM Installments WHERE CreatedDate >= '{start}' AND CreatedDate <= '{end}'";
             }
             else
             {
-                query = $"SELECT Id, CustomerName, CustomerPhone ,Product,InstallmentValue,NumberOfInstallments,ItemPurchasePrice FROM Installments WHERE CustomerName LIKE N'%{text}%'";
+                if (text == null)
+                {
+                    query = "SELECT Id,CustomerName,CustomerPhone,Product,InstallmentValue,NumberOfInstallments,ItemPurchasePrice FROM Installments ";
+
+
+                }
+                else
+                {
+                    query = $"SELECT Id, CustomerName, CustomerPhone ,Product,InstallmentValue,NumberOfInstallments,ItemPurchasePrice FROM Installments WHERE CustomerName LIKE N'%{text}%'";
+                }
             }
+          
             using (SqlConnection connection = new SqlConnection(Consts.Connectionstring))
             {
                 connection.Open();
@@ -71,7 +81,9 @@ namespace MyInstallments_App.UserControls
                         }
                         else
                         {
-                            //MessageBox.Show("لا توجد بيانات");
+                            Profts_table.DataSource = null; // Clear the existing data
+                            Profts_table.Rows.Clear(); // Remove any existing rows
+
                         }
                         Customers.Text = nCustomers.ToString();
                         Profits.Text = profits.ToString();
@@ -89,9 +101,12 @@ namespace MyInstallments_App.UserControls
             DrawData(guna2TextBox1.Text);
         }
 
-        private void StartDate_ValueChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            var value= StartDate.Value.ToString();
+            var startDate = StartDate.Value;
+            var endDate = EndDate.Value;
+           
+            DrawData(null, startDate, endDate);
         }
     }
 }
