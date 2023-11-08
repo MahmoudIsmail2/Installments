@@ -36,6 +36,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             panel1 = new Panel();
+            DetailsProductTxt = new Label();
+            label9 = new Label();
             Details_UpdatedDate = new Label();
             Details_PayedInstallments_Txt = new Label();
             Details_Value_Txt = new Label();
@@ -68,6 +70,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(DetailsProductTxt);
+            panel1.Controls.Add(label9);
             panel1.Controls.Add(Details_UpdatedDate);
             panel1.Controls.Add(Details_PayedInstallments_Txt);
             panel1.Controls.Add(Details_Value_Txt);
@@ -86,11 +90,31 @@
             panel1.Size = new Size(517, 803);
             panel1.TabIndex = 0;
             // 
+            // DetailsProductTxt
+            // 
+            DetailsProductTxt.AutoSize = true;
+            DetailsProductTxt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
+            DetailsProductTxt.Location = new Point(139, 124);
+            DetailsProductTxt.Name = "DetailsProductTxt";
+            DetailsProductTxt.Size = new Size(60, 23);
+            DetailsProductTxt.TabIndex = 28;
+            DetailsProductTxt.Text = "..........";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(396, 121);
+            label9.Name = "label9";
+            label9.Size = new Size(57, 25);
+            label9.TabIndex = 27;
+            label9.Text = "المنتج";
+            // 
             // Details_UpdatedDate
             // 
             Details_UpdatedDate.AutoSize = true;
             Details_UpdatedDate.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Details_UpdatedDate.Location = new Point(139, 451);
+            Details_UpdatedDate.Location = new Point(139, 427);
             Details_UpdatedDate.Name = "Details_UpdatedDate";
             Details_UpdatedDate.Size = new Size(60, 23);
             Details_UpdatedDate.TabIndex = 26;
@@ -100,7 +124,7 @@
             // 
             Details_PayedInstallments_Txt.AutoSize = true;
             Details_PayedInstallments_Txt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Details_PayedInstallments_Txt.Location = new Point(139, 207);
+            Details_PayedInstallments_Txt.Location = new Point(139, 227);
             Details_PayedInstallments_Txt.Name = "Details_PayedInstallments_Txt";
             Details_PayedInstallments_Txt.Size = new Size(60, 23);
             Details_PayedInstallments_Txt.TabIndex = 25;
@@ -110,7 +134,7 @@
             // 
             Details_Value_Txt.AutoSize = true;
             Details_Value_Txt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Details_Value_Txt.Location = new Point(139, 291);
+            Details_Value_Txt.Location = new Point(139, 288);
             Details_Value_Txt.Name = "Details_Value_Txt";
             Details_Value_Txt.Size = new Size(60, 23);
             Details_Value_Txt.TabIndex = 24;
@@ -120,7 +144,7 @@
             // 
             Details_CreatedDate.AutoSize = true;
             Details_CreatedDate.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Details_CreatedDate.Location = new Point(139, 372);
+            Details_CreatedDate.Location = new Point(139, 355);
             Details_CreatedDate.Name = "Details_CreatedDate";
             Details_CreatedDate.Size = new Size(60, 23);
             Details_CreatedDate.TabIndex = 23;
@@ -130,7 +154,7 @@
             // 
             Details_Installments_Txt.AutoSize = true;
             Details_Installments_Txt.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point);
-            Details_Installments_Txt.Location = new Point(139, 127);
+            Details_Installments_Txt.Location = new Point(139, 174);
             Details_Installments_Txt.Name = "Details_Installments_Txt";
             Details_Installments_Txt.Size = new Size(60, 23);
             Details_Installments_Txt.TabIndex = 18;
@@ -140,7 +164,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(290, 204);
+            label8.Location = new Point(302, 227);
             label8.Name = "label8";
             label8.Size = new Size(189, 25);
             label8.TabIndex = 17;
@@ -150,7 +174,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(366, 288);
+            label7.Location = new Point(368, 288);
             label7.Name = "label7";
             label7.Size = new Size(107, 25);
             label7.TabIndex = 16;
@@ -160,7 +184,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(318, 369);
+            label6.Location = new Point(331, 355);
             label6.Name = "label6";
             label6.Size = new Size(160, 25);
             label6.TabIndex = 15;
@@ -170,7 +194,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(360, 448);
+            label5.Location = new Point(360, 427);
             label5.Name = "label5";
             label5.Size = new Size(115, 25);
             label5.TabIndex = 14;
@@ -180,7 +204,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(318, 127);
+            label4.Location = new Point(316, 174);
             label4.Name = "label4";
             label4.Size = new Size(159, 25);
             label4.TabIndex = 13;
@@ -188,10 +212,10 @@
             // 
             // Payment_btn
             // 
-            Payment_btn.Location = new Point(19, 99);
+            Payment_btn.Location = new Point(19, 63);
             Payment_btn.Margin = new Padding(3, 4, 3, 4);
             Payment_btn.Name = "Payment_btn";
-            Payment_btn.Size = new Size(472, 425);
+            Payment_btn.Size = new Size(472, 390);
             Payment_btn.TabIndex = 5;
             // 
             // btn_Payment
@@ -202,7 +226,7 @@
             btn_Payment.FlatAppearance.BorderSize = 0;
             btn_Payment.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_Payment.ForeColor = Color.White;
-            btn_Payment.Location = new Point(139, 572);
+            btn_Payment.Location = new Point(139, 689);
             btn_Payment.Name = "btn_Payment";
             btn_Payment.Size = new Size(202, 71);
             btn_Payment.TabIndex = 12;
@@ -215,7 +239,7 @@
             label3.AutoSize = true;
             label3.BackColor = Color.White;
             label3.Font = new Font("Arabic Typesetting", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(154, 41);
+            label3.Location = new Point(154, 8);
             label3.Name = "label3";
             label3.Size = new Size(155, 51);
             label3.TabIndex = 4;
@@ -377,7 +401,7 @@
             guna2TextBox1.MaxLength = 50;
             guna2TextBox1.Name = "guna2TextBox1";
             guna2TextBox1.PasswordChar = '\0';
-            guna2TextBox1.PlaceholderText = "";
+            guna2TextBox1.PlaceholderText = "بحث بالاسم";
             guna2TextBox1.SelectedText = "";
             guna2TextBox1.ShadowDecoration.CustomizableEdges = customizableEdges2;
             guna2TextBox1.Size = new Size(805, 47);
@@ -430,5 +454,7 @@
         private Label Details_PayedInstallments_Txt;
         private Label Details_Value_Txt;
         private Label Details_CreatedDate;
+        private Label DetailsProductTxt;
+        private Label label9;
     }
 }

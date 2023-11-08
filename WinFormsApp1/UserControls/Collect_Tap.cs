@@ -13,7 +13,7 @@ namespace MyInstallments_App.UserControls
         public void DrawData(string? text = null)
         {
             string query;
-          
+
             if (text == null)
             {
                 query = "SELECT Id, CustomerName, CustomerPhone " +
@@ -33,7 +33,7 @@ namespace MyInstallments_App.UserControls
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
-                  
+
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
                     {
                         DataTable dataTable = new DataTable();
@@ -70,9 +70,6 @@ namespace MyInstallments_App.UserControls
         }
         private void Clients_table_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
-
-
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 DataGridViewRow selectedRow = Clients_table.Rows[e.RowIndex];
@@ -97,7 +94,9 @@ namespace MyInstallments_App.UserControls
                             if (dataTable.Rows.Count > 0)
                             {
                                 DataRow row = dataTable.Rows[0];
+                                DetailsProductTxt.Text = row["Product"].ToString();
                                 Details_Installments_Txt.Text = row["NumberOfInstallments"].ToString();
+                                DetailsProductTxt.Text = row["Product"].ToString();
                                 Details_PayedInstallments_Txt.Text = row["NumberOfPaiedInstallments"].ToString();
                                 Details_Value_Txt.Text = row["InstallmentValue"].ToString();
                                 Details_CreatedDate.Text = ((DateTime)row["CreatedDate"]).ToString("yyyy/MM/dd");
@@ -119,7 +118,7 @@ namespace MyInstallments_App.UserControls
         }
         private void btn_Payment_Click(object sender, EventArgs e)
         {
-            if(InstallmentId==Guid.Empty)
+            if (InstallmentId == Guid.Empty)
             {
                 MessageBox.Show("يجب عيك اختيار عميل!", "خطر", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -141,12 +140,12 @@ namespace MyInstallments_App.UserControls
                     }
 
                     connection.Close();
-                 
+
                     MessageBox.Show("تم الدفع بنجاح!", "نجاح", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-              
+
             }
-         
+
 
 
         }
